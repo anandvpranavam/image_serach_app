@@ -54,7 +54,7 @@ form {
 }
 
 .image-result {
-    margin-bottom: 60px;
+    margin-bottom: 30px;
     width: 30%;
     border-radius: 6px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -85,7 +85,6 @@ form {
 }
 
 #show-more-button {
-    display: flex;
     margin: 0 auto;
     background-color: rgb(16, 64, 238);
     color: white;
@@ -94,9 +93,9 @@ form {
     padding: 10px 20px;
     border-radius: 6px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    cursor: pointer;
     transition: background-color 0.3s ease-in-out;
     display: none;
+    cursor: pointer;
 }
 
 #show-more-button:hover {

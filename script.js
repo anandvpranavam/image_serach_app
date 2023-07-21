@@ -5,7 +5,7 @@ const form = document.querySelector("form")
 const pageHeading = document.getElementById("heading")
 const searchInput = document.getElementById("search-input")
 const searchButton = document.getElementById("search-button")
-const searchResults = document.getElementsByClassName("search-results")
+const searchResults = document.querySelector(".search-results")
 const imageResult = document.getElementsByClassName("image-result")
 const showMoreButton = document.getElementById("show-more-button")
 let page = 1;
@@ -22,7 +22,7 @@ async function searchImage() {
     
     const results = data.results;
 
-    results.map((result) => {
+    results.forEach((result) => {
     const imageDiv = document.createElement("div");
     imageDiv.classList.add("image-result");
     const imageData = document.createElement("img");
@@ -38,9 +38,10 @@ async function searchImage() {
     searchResults.appendChild(imageDiv);
     });
     
+    page++;
 
     if(page >1) {
-        showMoreButton.style.display = "block";
+        showMoreButton.style.display = "flex";
     }
 }
 
@@ -51,4 +52,9 @@ function handleSubmit(event) {
 }
 
 
+
 form.addEventListener("submit", handleSubmit)
+
+showMoreButton.addEventListener("click", ()=>{
+    searchImage();
+})
