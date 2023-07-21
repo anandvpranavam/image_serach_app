@@ -20,21 +20,34 @@ async function searchImage() {
         searchResults.innerHTML ="";
     }
     
-    const results = map.data.results;
+    const results = data.results;
+
+    results.map((result) => {
+    const imageDiv = document.createElement("div");
+    imageDiv.classList.add("image-result");
+    const imageData = document.createElement("img");
+    imageData.src = result.urls.small;
+    imageData.alt = result.alt_description;
+    const imageLink = document.createElement("a");
+    imageLink.href = result.links.html;
+    imageLink.target = "_blank";
+    imageLink.textContent = result.alt_description;
+
+    imageDiv.appendChild(imageData);
+    imageDiv.appendChild(imageLink);
+    searchResults.appendChild(imageDiv);
+    });
+    
+
     if(page >1) {
-        const results = map.data.results;
+        showMoreButton.style.display = "block";
     }
-
-
-
-
 }
 
 function handleSubmit(event) {
     event.preventDefault();
     page = 1;
     searchImage();
-
 }
 
 
